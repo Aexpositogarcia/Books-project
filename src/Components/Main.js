@@ -7,8 +7,11 @@ import axios from "axios";
 const Main = () => {
     const [search, setSearch] = useState("");
     const [bookData, setData] = useState([]);
-    const [isShown, setIsShown] = useState(false);
-
+    const [dato, setDato] = useState('');
+    const childToParent = (childdata) => {
+        setDato(childdata);
+        console.log('Le diste al videojuego')
+    }
     //Utilizado para esperar hasta que el usuario escriba
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
@@ -35,8 +38,8 @@ const Main = () => {
             </div>
             <div>
                 {
-                    <Card book={bookData} />
-                 }
+                    <Card book={bookData} childToParent={childToParent} />
+                }
             </div>
         </>
     )
