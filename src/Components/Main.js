@@ -22,14 +22,6 @@ const Main = () => {
         return () => clearTimeout(delayDebounceFn)
     }, [search])
 
-    const searchBook = () => {
-        //if (evt.key === "Enter") {
-        console.log("Hola");
-        setIsShown(current => !current);
-        axios.get('https://www.googleapis.com/books/v1/volumes?q=' + search + '&key=AIzaSyD0MkCs6qBhR2JQIwrLiyE9ygTpW--tEvY' + '&maxResults=40')
-            .then(res => setData(res.data.items))
-            .catch(err => console.log(err))
-    }
     return (
         //Controlando la variable isShown, controlamos la apareicion esta parte de la pagina
         <>
@@ -38,17 +30,13 @@ const Main = () => {
                 <input type="text" placeholder="METE EL PUTO TITULO COÑO"
                     value={search} onChange={e => setSearch(e.target.value)}
                 />
-                <button onClick={searchBook}> BUSCA COJONES</button>
-
-                {isShown && (
-                    <p >Eso es cabron</p>
-                )}
+                <button> BUSCA COJONES</button>
 
             </div>
             <div>
                 {
                     <Card book={bookData} />
-                }
+                 }
             </div>
         </>
     )
