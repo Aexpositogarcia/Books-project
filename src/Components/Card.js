@@ -5,7 +5,7 @@ import react from "react";
 import React, { Component } from 'react';
 import { useState } from "react/cjs/react.development";
 
-const Card = ({ book, childToParent }) => {
+const Card = ({ book, getBook }) => {
 
 
     const [show, setShow] = useState(false);
@@ -38,11 +38,10 @@ const Card = ({ book, childToParent }) => {
                                                         <div className="">
                                                             <h3 className="">{title}</h3>
                                                             <p className="">{price}&#8364;</p>
+                                                            <p className="">{isbnv.identifier}</p>
                                                         </div>
                                                         <div>
-                                                            <button onClick={() => childToParent=>(data)}>Dale que pasan cositas</button>
-
-                                                            
+                                                            <button primary onClick={() => getBook(isbnv.identifier)}>Click Child</button>
                                                         </div>
                                                     </div>
 
