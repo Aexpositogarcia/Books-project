@@ -16,11 +16,11 @@ const Main = () => {
         axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn)
                 .then(res => setBook(res.data))
                 .catch(err => console.log(err))
-        console.log('INFO BOOK'+ bookInfo);
     }
 
     const closeBook = () => {
         setIsShown(current => !current);
+        setBook(null);
     }
 
     

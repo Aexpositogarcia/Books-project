@@ -6,21 +6,35 @@ import React, { Component } from 'react';
 import { useState } from "react/cjs/react.development";
 
 const Book = ({ book, closeBook }) => {
-    console.log(book.items);
-    if (book != undefined) {
-        let cover = book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
-        let price = book.saleInfo.listPrice && book.saleInfo.listPrice.amount;
-        let title = book.volumeInfo.title;
+
+    if (book != null) {
         return (
-            <>
-                <div>
-                    <button primary onClick={() => closeBook()}>Salir Crack</button>
-                </div>
-                <div className="">
-                    <h1>{title}</h1>
-                </div>
+            <>{
+                book.items.map((item) => {
+                    let cover = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
+                    let price = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
+                    let title = item.volumeInfo.title;
+
+                    return (
+                        <>
+                            <div>
+                                <h1>{title}</h1>
+                                <img src={cover} alt="" />
+                                <p className="">{price}&#8364;</p>
+                            </div>
+
+                            <div>
+                                <button primary onClick={() => closeBook()}>Dame para cerrar</button>
+                            </div>
+
+                        </>
+                    )
+                })
+
+            }
             </>
         )
+
     }
 }
 export default Book;
