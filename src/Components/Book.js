@@ -6,18 +6,20 @@ import React, { Component } from 'react';
 import { useState } from "react/cjs/react.development";
 
 const Book = ({ book, closeBook }) => {
-    console.log(book.items);
+
+
+    console.log(book);
+    
     if (book != undefined) {
-        let cover = book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.smallThumbnail;
-        let price = book.saleInfo.listPrice && book.saleInfo.listPrice.amount;
-        let title = book.volumeInfo.title;
+
         return (
             <>
                 <div>
-                    <button primary onClick={() => closeBook()}>Salir Crack</button>
+                    <p>Hola crack</p>
+                    <button onClick={() => closeBook()}>Salir Crack</button>
                 </div>
                 <div className="">
-                    <h1>{title}</h1>
+                    <h1>{book}</h1>
                 </div>
             </>
         )
