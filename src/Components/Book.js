@@ -11,9 +11,12 @@ const Book = ({ book, closeBook }) => {
         return (
             <>{
                 book.items.map((item) => {
+                    console.log(item);
+                    
                     let cover = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
                     let price = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
                     let title = item.volumeInfo.title;
+                    let resume = item.searchInfo.textSnippet;
 
                     return (
                         <>
@@ -21,6 +24,10 @@ const Book = ({ book, closeBook }) => {
                                 <h1>{title}</h1>
                                 <img src={cover} alt="" />
                                 <p className="">{price}&#8364;</p>
+                            </div>
+                            <div>
+                                <h1>Breve Descripción:</h1>
+                                <p>{resume}</p>
                             </div>
 
                             <div>
