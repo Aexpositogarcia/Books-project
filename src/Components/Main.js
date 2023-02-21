@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Card from "./Card";
 import Book from "./Book";
 import axios from "axios";
+import '../style.css';
 //Add Class for a Card
 
 const Main = () => {
@@ -14,8 +15,14 @@ const Main = () => {
     const getBook = (isbn) => {
         setIsShown(current => !current);
         axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn)
+<<<<<<< HEAD
                 .then(res => setBook(res.data))
                 .catch(err => console.log(err))
+=======
+            .then(res => setBook(res.data))
+            .catch(err => console.log(err))
+        console.log('INFO BOOK' + bookInfo);
+>>>>>>> origin/master
     }
 
     const closeBook = () => {
@@ -23,7 +30,7 @@ const Main = () => {
         setBook(null);
     }
 
-    
+
     //Utilizado para esperar hasta que el usuario escriba
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
@@ -33,31 +40,35 @@ const Main = () => {
                 .catch(err => console.log(err))
             // Send Axios request here
         }, 500)
-
         return () => clearTimeout(delayDebounceFn)
     }, [search])
 
     return (
         //Controlando la variable isShown, controlamos la apareicion esta parte de la pagina
         <>
-            <div className="header">
-                <p>SHHHHHH PA TU CASA TONTIN</p>
-                <input type="text" placeholder="METE EL PUTO TITULO COÑO"
-                    value={search} onChange={e => setSearch(e.target.value)}
-                />
-                <button> BUSCA COJONES</button>
+
+            <div className="search-box">
+                <h1>Search</h1>
+                <div className="search-icon">
+                    <span class="material-symbols-rounded icon-input ">
+                        search
+                    </span>
+                    <input type="text" className="search-input" placeholder="Enter a book title"
+                        value={search} onChange={e => setSearch(e.target.value)}
+                    />
+                </div>
             </div>
             <div>
                 {!isShown &&
                     (
-                    <Card book={bookData} getBook={getBook} />
+                        <Card book={bookData} getBook={getBook} />
                     )
                 }
             </div>
             <div>
                 {isShown &&
                     (
-                    <Book book={bookInfo} closeBook={closeBook}/>
+                        <Book book={bookInfo} closeBook={closeBook} />
                     )
                 }
             </div>

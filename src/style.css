@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap');
+
+h1 {
+    font-family: Open Sans;
+    font-size: 36px;
+}
+
+h3{
+    font-family: 'Open Sans';
+}
+
+p{
+    font-family: 'Open Sans';
+}
+input {
+    font-family: Open Sans;
+}
+
+body {
+    align-items: center;
+}
+
+::placeholder {
+    color: #CAC3C3;
+}
+
+.icon-input {
+    position: absolute;
+    left: 16px;
+    top: 23px;
+    transform: scale(1.3);
+    color: #CAC3C3;
+}
+.bookmark-icon{
+    
+
+    transform: scale(2);
+    color: #CAC3C3;
+}
+
+.search-icon {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+
+}
+
+.search-box {
+
+    height: 297px;
+    display: grid;
+    grid-auto-columns: 0.67fr;
+    grid-template-rows: repeat(2, 1fr);
+    background-color: #F2F2F2;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.search-input {
+
+    width: 100%;
+    padding: 16px;
+    padding-left: 48px;
+
+    font-size: 24px;
+    font-weight: 300px;
+    background: #FFFFFF;
+    border: 2px solid #CAC3C3;
+    border-radius: 20px;
+    color: solid hsl(0, 6%, 78%);
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #D3D3D3;
+    border-radius: 20px;
+    width: 300px;
+
+}
+
+.card-color {
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img {
+    
+    display: flex;
+    min-height: 209px;
+    padding: 16px;
+
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card-img img {
+    
+    border-radius: 20px;
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.25);
+}
+
+.card-text-title{
+    min-height:70px ;
+}
+
+.card-text {
+    padding-left: 16px;
+    padding-right: 16px;
+    border-top: 4px solid #CAC3C3;
+}
+
+.card-text-category{
+
+    width: fit-content;
+    font-size: 16px;
+    color:#CAC3C3;
+    
+    padding: 8px;
+    padding-left: 10px;
+    border: 2px solid #CAC3C3;
+    text-transform: uppercase;
+    border-radius: 20px;
+
+}
+.card-catalog {
+
+    display: grid;
+    margin-top: 16px;
+    margin-left: 16%;
+    margin-right: 16%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 16px;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+.card-bookmark{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+
+}

@@ -7,6 +7,7 @@ import { useState } from "react/cjs/react.development";
 
 const Book = ({ book, closeBook }) => {
 
+<<<<<<< HEAD
     if (book != null) {
         return (
             <>{
@@ -39,6 +40,22 @@ const Book = ({ book, closeBook }) => {
                 })
 
             }
+=======
+
+    console.log(book);
+    
+    if (book != undefined) {
+
+        return (
+            <>
+                <div>
+                    <p>Hola crack</p>
+                    <button onClick={() => closeBook()}>Salir Crack</button>
+                </div>
+                <div className="">
+                    <h1>{book}</h1>
+                </div>
+>>>>>>> origin/master
             </>
         )
 
