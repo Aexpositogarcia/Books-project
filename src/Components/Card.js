@@ -5,6 +5,7 @@ import react from "react";
 import React, { Component } from 'react';
 import { useState } from "react/cjs/react.development";
 
+
 const Card = ({ book, getBook }) => {
 
 
@@ -15,6 +16,7 @@ const Card = ({ book, getBook }) => {
 
     return (
         <>
+            <h2 class="category" >Books</h2>
             <div className="card-catalog">
                 {
                     book.map((item) => {
@@ -67,7 +69,6 @@ const Card = ({ book, getBook }) => {
 
                                 </>
                             );
-
                         }
                     })
                 }

@@ -15,14 +15,10 @@ const Main = () => {
     const getBook = (isbn) => {
         setIsShown(current => !current);
         axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn)
-<<<<<<< HEAD
-                .then(res => setBook(res.data))
-                .catch(err => console.log(err))
-=======
+
             .then(res => setBook(res.data))
             .catch(err => console.log(err))
-        console.log('INFO BOOK' + bookInfo);
->>>>>>> origin/master
+
     }
 
     const closeBook = () => {

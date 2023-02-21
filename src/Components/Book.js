@@ -7,13 +7,14 @@ import { useState } from "react/cjs/react.development";
 
 const Book = ({ book, closeBook }) => {
 
-<<<<<<< HEAD
     if (book != null) {
         return (
-            <>{
+            <>
+            
+                {
                 book.items.map((item) => {
                     console.log(item);
-                    
+
                     let cover = item.volumeInfo.imageLinks && item.volumeInfo.imageLinks.smallThumbnail;
                     let price = item.saleInfo.listPrice && item.saleInfo.listPrice.amount;
                     let title = item.volumeInfo.title;
@@ -40,22 +41,6 @@ const Book = ({ book, closeBook }) => {
                 })
 
             }
-=======
-
-    console.log(book);
-    
-    if (book != undefined) {
-
-        return (
-            <>
-                <div>
-                    <p>Hola crack</p>
-                    <button onClick={() => closeBook()}>Salir Crack</button>
-                </div>
-                <div className="">
-                    <h1>{book}</h1>
-                </div>
->>>>>>> origin/master
             </>
         )
 
