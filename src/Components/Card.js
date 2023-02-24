@@ -42,7 +42,7 @@ const Card = ({ book, getBook }) => {
                                                     console.log(cover)
                                                     return (
                                                         <>
-                                                            <div className="card" onClick={() => { setShow(true); setItem(item) }}>
+                                                            <div className="card" onClick={() => { getBook(isbnv.identifier) }}>
                                                                 <div className="card-color">
                                                                     <div className="card-img">
                                                                         <img src={cover} alt="" />
