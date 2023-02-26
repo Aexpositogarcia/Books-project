@@ -1,14 +1,48 @@
 import { render } from "@testing-library/react";
 import { type } from "@testing-library/user-event/dist/type";
 import react from "react";
-
 import React, { Component } from 'react';
 import { useState } from "react/cjs/react.development";
-import * as THREE from "three"
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+
+
+let open_ai_response;
+
+
+
+async function openai_test() {
+  
+  var url = "https://api.openai.com/v1/engines/text-davinci-002/completions";
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", url);
+
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Authorization", "Bearer LA API VA AQUI");
+
+  xhr.onreadystatechange = function () {
+     if (xhr.readyState === 4) {
+        console.log(xhr.status);
+        console.log(xhr.responseText);
+        open_ai_response = xhr.responseText;
+        console.log(open_ai_response);
+     }};
+
+  var data = `{
+    "prompt": "Hello WORD.",
+    "temperature": 0.7,
+    "max_tokens": 256,
+    "top_p": 1,
+    "frequency_penalty": 0.75,
+    "presence_penalty": 0
+  }`;
+
+  xhr.send(data);
+}
+
 
 const Book = ({ book, closeBook }) => {
 
+    
     if (book != null) {
         return (
             <>
@@ -22,15 +56,13 @@ const Book = ({ book, closeBook }) => {
                         let title = item.volumeInfo.title;
                         let resume = item.searchInfo.textSnippet;
 
-                        
 
 
                         return (
                             <>
                                 <div>
-                                    <canvas class="webgl"></canvas>
                                     <h1>{title}</h1>
-                                    <img src={cover} alt="" />
+                                    <canvas id="canvas"></canvas>
                                     <p className="">{price}&#8364;</p>
                                 </div>
                                 <div>
@@ -41,46 +73,11 @@ const Book = ({ book, closeBook }) => {
                                 <div>
                                     <button primary onClick={() => closeBook()}>Dame para cerrar</button>
                                 </div>
-                                <script>
-                                    
-                                </script>
 
                             </>
                         )
 
 
-                        const canvas = document.querySelector('.webgl')
-                        const scene = new THREE.Scene()
-
-                        const loader = new GLTFLoader()
-                        loader.load('public\book_tutorial.glb',function (gltf){
-                            console.log(gltf)
-                            const root = gltf.scene
-                            scene.add(root);
-                        },function(xhr){
-                            console.log((xhr.loaded/xhr.total* 100)+ "%loaded")
-                        }, function(error){
-                            console.log('an error ocurrred')
-                        })
-                        
-                        const size = {
-                            width: window.innerWidth,
-                            height: window.innerHeight
-                        }
-
-                        const camera = new THREE.PerspectiveCamera(75,size.width/size.height,0.1,100)
-                        camera.position.set(0,1,2)
-                        scene.add(camera)
-                        
-                        const renderer = new THREE.WebGL1Renderer({
-                            canvas:canvas
-                        })
-
-                        renderer.setSize(size.width,size.height)
-                        renderer.setPixelRatio(Math.min(window.devicePixelRatio,2))
-                        renderer.shadowMap.enabled = true
-                        renderer.gammaOutput = true
-                        renderer.render(scene,camera)
                     })
 
                 }
